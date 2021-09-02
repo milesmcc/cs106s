@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang=en>
+
+<head>
+    <title>CS106S: Coding for Social Good</title>
+    <meta charset=utf-8>
+    <meta http-equiv=x-ua-compatible content="IE=edge">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <meta name=description
+        content="CS 106S is a survey course on the applications of fundamental computer science concepts from CS 106B/X to problems in the social good space (such as health, government, education, and environment).">
+    <meta property="og:description"
+        content="CS 106S is a survey course on the applications of fundamental computer science concepts from CS 106B/X to problems in the social good space (such as health, government, education, and environment).">
+    <meta property="og:site_name" content="CS106S">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CS106S: Coding for Social Good">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/a17t@latest/dist/a17t.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/a17t@latest/dist/tailwind.css">
+    <style>
+        :root {
+            --family-secondary: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --family-primary: var(--family-secondary);
+
+            --code-color: var(--color-neutral-800);
+            --code-background: var(--color-neutral-100);
+
+            --color-neutral-000: #ffffff;
+            --color-neutral-50: #f3f4f6;
+            --color-neutral-100: #e5e7eb;
+            --color-neutral-200: #d1d5db;
+            --color-neutral-300: #9ca3af;
+            --color-neutral-400: #6b7280;
+            --color-neutral-500: #4b5563;
+            --color-neutral-600: #374151;
+            --color-neutral-700: #1f2937;
+            --color-neutral-800: #172136;
+            --color-neutral-900: #0b0f18;
+
+            --color-critical-000: #fef2f2;
+            --color-critical-50: #fee2e2;
+            --color-critical-100: #fecaca;
+            --color-critical-200: #fca5a5;
+            --color-critical-300: #f87171;
+            --color-critical-400: #ef4444;
+            --color-critical-500: #dc2626;
+            --color-critical-600: #b91c1c;
+            --color-critical-700: #991b1b;
+            --color-critical-800: #7f1d1d;
+            --color-critical-900: #441313;
+
+            --color-warning-000: #fffbeb;
+            --color-warning-50: #fef3c7;
+            --color-warning-100: #fde68a;
+            --color-warning-200: #fcd34d;
+            --color-warning-300: #fbbf24;
+            --color-warning-400: #f59e0b;
+            --color-warning-500: #d97706;
+            --color-warning-600: #b45309;
+            --color-warning-700: #92400e;
+            --color-warning-800: #783900;
+            --color-warning-900: #411e01;
+
+            --color-positive-000: #f0fdf4;
+            --color-positive-50: #dcfce7;
+            --color-positive-100: #bbf7d0;
+            --color-positive-200: #86efac;
+            --color-positive-300: #4ade80;
+            --color-positive-400: #22c55e;
+            --color-positive-500: #16a34a;
+            --color-positive-600: #15803d;
+            --color-positive-700: #166534;
+            --color-positive-800: #14532d;
+            --color-positive-900: #0f2e1b;
+
+            --color-info-000: #eff6ff;
+            --color-info-50: #dbeafe;
+            --color-info-100: #bfdbfe;
+            --color-info-200: #93c5fd;
+            --color-info-300: #60a5fa;
+            --color-info-400: #3b82f6;
+            --color-info-500: #2563eb;
+            --color-info-600: #1d4ed8;
+            --color-info-700: #1e40af;
+            --color-info-800: #1e3a8a;
+            --color-info-900: #14244e;
+
+            --color-urge-000: #f5f3ff;
+            --color-urge-50: #ede9fe;
+            --color-urge-100: #ddd6fe;
+            --color-urge-200: #c4b5fd;
+            --color-urge-300: #a78bfa;
+            --color-urge-400: #8b5cf6;
+            --color-urge-500: #7c3aed;
+            --color-urge-600: #6d28d9;
+            --color-urge-700: #5b21b6;
+            --color-urge-800: #4c1d95;
+            --color-urge-900: #240e44;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-neutral-900: #ffffff;
+                --color-neutral-800: #f3f4f6;
+                --color-neutral-700: #e5e7eb;
+                --color-neutral-600: #d1d5db;
+                --color-neutral-500: #9ca3af;
+                --color-neutral-400: #6b7280;
+                --color-neutral-300: #4b5563;
+                --color-neutral-200: #374151;
+                --color-neutral-100: #1f2937;
+                --color-neutral-50: #172136;
+                --color-neutral-000: #0b0f18;
+
+                --color-critical-900: #fef2f2;
+                --color-critical-800: #fee2e2;
+                --color-critical-700: #fecaca;
+                --color-critical-600: #fca5a5;
+                --color-critical-500: #f87171;
+                --color-critical-400: #ef4444;
+                --color-critical-300: #dc2626;
+                --color-critical-200: #b91c1c;
+                --color-critical-100: #991b1b;
+                --color-critical-50: #7f1d1d;
+                --color-critical-000: #441313;
+
+                --color-warning-900: #fffbeb;
+                --color-warning-800: #fef3c7;
+                --color-warning-700: #fde68a;
+                --color-warning-600: #fcd34d;
+                --color-warning-500: #fbbf24;
+                --color-warning-400: #f59e0b;
+                --color-warning-300: #d97706;
+                --color-warning-200: #b45309;
+                --color-warning-100: #92400e;
+                --color-warning-50: #783900;
+                --color-warning-000: #411e01;
+
+                --color-positive-900: #f0fdf4;
+                --color-positive-800: #dcfce7;
+                --color-positive-700: #bbf7d0;
+                --color-positive-600: #86efac;
+                --color-positive-500: #4ade80;
+                --color-positive-400: #22c55e;
+                --color-positive-300: #16a34a;
+                --color-positive-200: #15803d;
+                --color-positive-100: #166534;
+                --color-positive-50: #14532d;
+                --color-positive-000: #0f2e1b;
+
+                --color-info-900: #eff6ff;
+                --color-info-800: #dbeafe;
+                --color-info-700: #bfdbfe;
+                --color-info-600: #93c5fd;
+                --color-info-500: #60a5fa;
+                --color-info-400: #3b82f6;
+                --color-info-300: #2563eb;
+                --color-info-200: #1d4ed8;
+                --color-info-100: #1e40af;
+                --color-info-50: #1e3a8a;
+                --color-info-000: #14244e;
+
+                --color-urge-900: #f5f3ff;
+                --color-urge-800: #ede9fe;
+                --color-urge-700: #ddd6fe;
+                --color-urge-600: #c4b5fd;
+                --color-urge-500: #a78bfa;
+                --color-urge-400: #8b5cf6;
+                --color-urge-300: #7c3aed;
+                --color-urge-200: #6d28d9;
+                --color-urge-100: #5b21b6;
+                --color-urge-50: #4c1d95;
+                --color-urge-000: #240e44;
+            }
+        }
+    </style>
+</head>
+
+<body class=bg-neutral-000>
+    <section class="max-w-6xl mx-auto p-4 relative min-h-screen">
+        <div class="md:flex md:justify-center md:mt-48">
+            <aside>
+                <nav class="flex justify-between w-full items-center md:block mb-12 md:mb-0" aria-label=navigation>
+                    <a class="flex justify-end md:w-full md:mb-12 mt-2" href= />
+                    <img class="h-5 md:h-8" alt="The CS+Social Good logo"
+                        src=images/logo.png>
+                    </a>
+                    <div
+                        class="text-right md:-mt-1 md:opacity-50 transition-opacity hover:opacity-100 focus:opacity-100">
+                        <div class=md:text-right>
+                            <ul class="-ml-2 md:ml-0 flex md:block">
+                                <li>
+                                    <div class="portal font-semibold ~warning text-warning-500">
+                                        <a href=#news />
+                                        <span>News</span>
+                                        </a>
+                                    </div>
+                                    <br>
+                                </li>
+                                <li>
+                                    <div class="portal font-semibold ~positive text-positive-500">
+                                        <a href=#details />
+                                        <span>Details</span>
+                                        </a>
+                                    </div>
+                                    <br>
+                                </li>
+                                <li>
+                                    <div class="portal font-semibold ~info text-info-500">
+                                        <a href=#instructors />
+                                        <span>Instructors</span>
+                                        </a>
+                                    </div>
+                                    <br>
+                                </li>
+                                <li>
+                                    <div class="portal font-semibold ~urge text-urge-500">
+                                        <a href=#syllabus />
+                                        <span>Syllabus</span>
+                                        </a>
+                                    </div>
+                                    <br>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </aside>
+            <div class="md:min-w-xl md:max-w-xl md:mx-16">
+                <section>
+                    <div>
+                        <h3 class="inline heading font-bold md:text-4xl">
+                            CS106S
+                        </h3>
+                        <h3 class="inline heading font-bold md:text-4xl opacity-50">
+                            <br>Coding for Social Good
+                        </h3>
+                    </div>
+                    <div class=mt-4>
+                        <span class="chip ~neutral !normal bg-neutral-100 mb-2 mr-2">
+                            Fall 2021
+                        </span>
+                        <span class="chip ~neutral !normal bg-neutral-100 mb-2 mr-2">Lathrop 292</span>
+                        <span class="chip ~neutral !normal bg-neutral-100 mb-2 mr-2">Th 2:45p</span>
+                    </div>
+                </section>
+                <hr class="sep h-8">
+                <main>
+                    <section class=content>
+                        <p>CS 106S is a survey course on the applications of fundamental computer science concepts from CS 106B/X to problems in the social good space (such as health, government, education, and environment). Each week consists of in-class activities designed by student groups, local tech companies, and nonprofits. Some of the topics we will cover include mental health chatbots, tumor classification with basic machine learning, sentiment analysis of tweets on refugees, and matching algorithms in the context of COVID-19. Prerequisite/corequisite: CS 106B or CS 106X.</p>
+                        <h2 id="news">News</h2>
+                        <div class="flex gap-5">
+                            <div class="w-12">
+                                <span class="chip ~neutral !low bg-neutral-50">9/18/21</span>
+                            </div>
+                            <div class="flex-grow">
+                                <p>Welcome to CS106S! Our first class will be Thursday September 27, 2021 at 2:45 P.M. PDT in Lathrop 292. Can't wait to see you there!</p>
+                            </div>
+                        </div>
+                        <h2 id="details">Course Details</h2>
+                        <p>We're looking forward to a great quarter with you in CS106S! We know you are being equipped with the tools to make super cool stuff. However, sometimes it is difficult to see where these tools fit in the larger scheme of things. We want to show you ways to put the skills you have learned to good social use! Here are our objectives:</p>
+                        <ul>
+                            <li><strong>Awareness:</strong> For students to gain awareness about the applicability of technology and computer science to enact social good in the world.</li>
+                            <li><strong>Exposure:</strong> For students to learn how to utilize their skills to build tools and projects that create positive social impact.</li>
+                            <li><strong>Utilization:</strong> For students to gain exposure to the variety of current projects and efforts to use computer science for social good.</li>
+                        </ul>
+                        <p>Now, let's get into some important details: expectations, grading, and meeting time!</p>
+                        <h4>Student Expectations</h4>
+                        <p>Students are expected to attend class each week and participate in class lectures, discussions, and exercises. Every week will have a check-off form with some simple questions from class and feedback prompts for the teaching team. This will be the way we check your attendance.</p>
+                        <h4>Grading</h4>
+                        <p>Students will be graded on the basis of attendance and participation. Participation and attending a minimum of 8 out of 9 classes are requirements to receive credit. In the case that a student will miss more than one class due to extenuating circumstances, please contact the teaching staff to receive an excused absence.</p>
+                        <h4>Meeting Time &amp; Coursework</h4>
+                        <p>CS106S will meet every Thursday afternoon from 2:45p to 4:45p. The course will meet in-person in Lathrop 292. Students will receive 1 unit of S/NC credit. Except in cases where students miss class (which we will handle on a case by case basis), no work will be required outside of our class meetings.</p>
+                        <h2 id="instructors">Instructors</h2>
+                        <div class="grid grid-cols-3 md:grid-cols-4 gap-6">
+                            <div class="text-center">
+                                <img src="images/matthew_early.jpg" alt="Headshot of Matthew Early" class="rounded-full h-20 w-20 mx-auto">
+                                <p class="font-semibold">Matthew Early</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="images/miles_mccain.png" alt="Headshot of Miles McCain" class="rounded-full h-20 w-20 mx-auto">
+                                <p class="font-semibold">Miles McCain</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="images/katie_creel.jpg" alt="Headshot of Dr. Katie Creel" class="rounded-full h-20 w-20 mx-auto">
+                                <p class="font-semibold">Dr. Katie Creel</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="images/andy_jin.jpg" alt="Headshot of Andy Jin" class="rounded-full h-20 w-20 mx-auto">
+                                <p class="font-semibold">Andy Jin</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="images/default_user.jpg" alt="Placeholder image for Cooper" class="rounded-full h-20 w-20 mx-auto">
+                                <p class="font-semibold">Cooper De Nicola</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="images/default_user.jpg" alt="Placeholder image for Priti" class="rounded-full h-20 w-20 mx-auto">
+                                <p class="font-semibold">Priti Rangnekar</p>
+                            </div>
+                        </div>
+                        <h2 id="syllabus">Syllabus</h2>
+                        <p>The syllabus will be finalized closer to the beginning of classes. Check back soon!</p>
+                    </section>
+                </main>
+                <hr class="sep h-16">
+                <footer>
+                    <footer class="family-secondary support content">
+                        <p class=pb-2>
+                           The source code for this website is <a href="https://github.com/milesmcc/cs106s">available on GitHub</a>, licensed under Apache 2.0. To learn more about CS + Social Good, visit our website at <a href="https://cs4good.org">cs4good.org</a>.</p>
+                        </p>
+                    </footer>
+                </footer>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
